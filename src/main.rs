@@ -1,51 +1,60 @@
-fn main(){
-//     let arr=[0,2,1,3];
-// //derefrancing array
-//     let slice = &arr[1..3]; //[1,2]
+// use std::collections::{ HashMap};
 
-//     borrowing_slice(arr, slice);
-
-    // let str: &str = "Hello World!";
-    // let mut string: String = String::from("HelloWorld");
-    // let slice = &string[..6];
-    // println!("{} {} {}", str, string, slice);
-
-    // string.push('a');
-    // let new_slice = &string[..];
-    // println!("{} {} {}", str, string, new_slice);
-
-    // let local =string.replace("Hello","Check");
-    // println!("{} {} {}", str, local, new_slice);
-
-
-    // let n=-1;
-    // if n>0{
-    //     println!("Greater Than zero");
-    // }else if n<0{
-    //     println!("Less than zero");
-    // }else{
-    //     println!("Is zero")
-    // }
-
-    //for loop in rust
-    // for i in 0..6{
-    //     println!("{}",i);
-    // }
-     let mut i=0;
-    while i<4{
-        println!("{}",i);
-        i+=1;
-        if i==3 {
-            print!("Exit");
-            break;
-        }
-    }
+#[derive(Debug)]
+enum MyError{
+    Error
 }
 
+//err a enum that contains error
+//ok value to wrapper containing error
+fn divide(divident : i32,divisor:i32)->Result<i32,MyError>{
+if divident%divisor !=0{
+    Err(MyError::Error)
+}else{
+    Ok(divident/divisor)
+}
+}
+fn main(){
+    //enum results:
+    let divide =divide(4,2);
+    match divide {
+        Ok(v)=>println!("{}",v),
+        Err(v)=>println!("{:?}",v)
+    }
 
-// fn borrowing_slice(arr:[u8;4],slice: &[u8]){
-//     println!("{:?}",arr);
-//     println!("{:?}",slice);
-//     println!("length:{}",slice.len());
-//     println!("{} {}",slice[0],slice[1]);
-// }
+
+
+    // let Divide1: Option<i32>=divide(4, 2);
+    // let Divide2: Option<i32>=divide(2, 3);
+    // println!("{:?} unwraps to {}",Divide1,Divide1.unwrap());
+    // println!("{:?} unwraps to {}",Divide2,Divide2.unwrap())
+    //same as  dynamic array
+    // let mut vec: Vec<i64>=vec![1,2,3,4,5,6,8];
+    // vec.len();
+    // vec[0];
+    // vec.push(6);
+    // vec.remove(1);
+    // println!("{:?}",vec);
+
+
+    //hashmaps maps like keyvalue pair
+    // let mut map= HashMap::new();
+
+    // map.insert(0, "Hello");
+    // map.insert(1, "World");
+    // println!("{:?}",map);
+
+    // match map.get(&0) {
+    //     Some(str)=> println!("{}",str),
+    //     _=>println!("Doesn't Exist In Map"),
+    // }
+
+    // match map.get(&2){
+    //     Some(str)=>println!("{}",str),
+    //     _=>println!("Doesn't Exist In Map"),
+    // }
+
+
+    // map.remove(&0);
+    // println!("{:?}",map);
+}
