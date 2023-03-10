@@ -23,11 +23,23 @@ fn main() {
     // let is_true:bool= true;
     // println!("IsTrue: {}",is_true);
 
-    let arr:[u8;3]=[1,2,3];
-    let other_arr:[u8;5]=[100,2,2,2,2];
+//     let arr:[u8;3]=[1,2,3];
+//     let other_arr:[u8;5]=[100,2,2,2,2];
 
-    println!("Index: {},length: {}",arr[0],other_arr.len());
+//     println!("Index: {},length: {}",arr[0],other_arr.len());
 
-//print structure of the array and other objects
-    println!("{:?}",other_arr);
+// //print structure of the array and other objects
+//     println!("{:?}",other_arr);
+
+let tuple:(u8,bool,f32)=(5,true,2.1);
+let tuple2=(3,5);
+//index of tuple
+println!("First {}, Second {} , Third {}",tuple.0,tuple.1,tuple.2);
+
+println!("{:?}",tuple2);
+
+let (a,b,c)=tuple;
+
+//destructuring 
+println!("first {}, second {}, third {}",a,b,c);
 }
